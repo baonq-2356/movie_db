@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_db/gen/assets.gen.dart';
+import 'package:movie_db/ui/screens/home/widgets/movie_item.dart';
 
 import '../../../resources/strings.dart';
 
@@ -10,15 +11,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        title: const Text(Strings.homeScreenTitle),
+        centerTitle: true,
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, Strings.detailScreenTag);
-          },
-          child: Image.asset(Assets.images.amongUs.path),
-        ),
+      body: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: 10,
+          itemBuilder: (BuildContext context, int index) {
+            return MovieItem();
+          }
       ),
     );
   }

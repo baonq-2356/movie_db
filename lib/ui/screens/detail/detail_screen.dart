@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_db/gen/assets.gen.dart';
+import 'package:movie_db/resources/strings.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -7,6 +8,10 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(Strings.detailScreenTitle),
+        centerTitle: true,
+      ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
