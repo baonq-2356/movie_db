@@ -10,16 +10,33 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(Strings.homeScreenTitle),
-        centerTitle: true,
-      ),
-      body: ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: 10,
-          itemBuilder: (BuildContext context, int index) {
-            return MovieItem();
-          }
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Center(
+              child: Text(
+                Strings.homeScreenTitle,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 32,
+                  color: Colors.black,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 24,),
+            Expanded(
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const MovieItem();
+                    }
+                ),
+            ),
+          ],
+        ),
       ),
     );
   }
